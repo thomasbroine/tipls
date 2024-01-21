@@ -13,6 +13,7 @@ export class AddDepenseComponent implements OnInit {
   depense: Depense = {
     title: '',
     amount: 1.00,
+    date: new Date(),
   };
   submitted = false;
 
@@ -28,7 +29,9 @@ export class AddDepenseComponent implements OnInit {
     const data = {
       title: this.depense.title,
       amount: this.depense.amount,
+      date: this.depense.date,
     };
+    console.log(data);
 
     this.depenseService.create(data).subscribe({
       next: (res) => {

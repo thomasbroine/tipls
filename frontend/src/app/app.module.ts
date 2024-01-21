@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { AddDepenseComponent } from './components/add-depense/add-depense.component';
 import { DepenseDetailsComponent } from './components/depense-details/depense-details.component';
 import { DepensesListComponent } from './components/depenses-list/depenses-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddDepenseComponent,
     DepenseDetailsComponent,
-    DepensesListComponent
+    DepensesListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

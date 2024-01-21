@@ -24,31 +24,29 @@
     <h4>Mes dépenses :</h4>
 
     <div class="card mb-3" *ngFor="let depense of depenses; let i = index">
-        <div class="card-body d-flex align-items-center" [class.active]="i == currentIndex" (click)="setActiveDepense(depense, i)" >
-            <div class="d-flex align-items-baseline">
-                <h3 class="card-text mr-3" style="margin-right: 20px;">{{ depense.amount }}€</h3>
-                <h5 class="card-title">{{ depense.title }}</h5>
-            </div>
-        </div>
-    </div>
-
-    <!-- <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let depense of depenses; let i = index"
+      <div
+        class="card-body d-flex align-items-center"
         [class.active]="i == currentIndex"
         (click)="setActiveDepense(depense, i)"
       >
-        {{ depense.amount }} €
-        {{ depense.title }}
-      </li>
-    </ul> -->
+        <div class="d-flex align-items-baseline">
+          <h3 class="card-text mr-3" style="margin-right: 20px">
+            {{ depense.amount }}€
+          </h3>
+          <h5 class="card-title">{{ depense.title }}</h5>
+        </div>
+      </div>
+    </div>
 
     <!-- Ajout du message si la liste des dépenses est vide -->
     <div *ngIf="isEmpty">Aucune dépense à afficher.</div>
 
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllDepenses()">
-      Remove All
+    <button
+      (click)="removeAllDepenses()"
+      class="btn btn-outline-danger"
+      style="margin-top: 20px; width: 100%;"
+    >
+      Supprimer toutes les dépenses
     </button>
   </div>
   <div class="col-md-6">

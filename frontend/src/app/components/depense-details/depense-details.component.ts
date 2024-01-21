@@ -14,8 +14,10 @@ export class DepenseDetailsComponent implements OnInit {
 
   @Input() currentDepense: Depense = {
     title: '',
-    amount: 0
+    amount: 0,
+    date: new Date(),
   };
+
   
   message = '';
 
@@ -42,26 +44,6 @@ export class DepenseDetailsComponent implements OnInit {
       });
   }
 
-  // updatePublished(status: boolean): void {
-  //   const data = {
-  //     title: this.currentDepense.title,
-  //     amount: this.currentDepense.amount,
-  //     published: status
-  //   };
-
-  //   this.message = '';
-
-  //   this.depenseService.update(this.currentDepense.id, data)
-  //     .subscribe({
-  //       next: (res) => {
-  //         console.log(res);
-  //         this.currentDepense.published = status;
-  //         this.message = res.message ? res.message : 'The status was updated successfully!';
-  //       },
-  //       error: (e) => console.error(e)
-  //     });
-  // }
-
   updateDepense(): void {
     this.message = '';
 
@@ -70,6 +52,7 @@ export class DepenseDetailsComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.message = res.message ? res.message : 'This depense was updated successfully!';
+          this.router.navigate(['/depenses']);
         },
         error: (e) => console.error(e)
       });
@@ -80,7 +63,8 @@ export class DepenseDetailsComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.router.navigate(['/depenses']);
+          this.currentDepense = {};
+          this.router.navigate(['..'], { relativeTo: this.route });
         },
         error: (e) => console.error(e)
       });

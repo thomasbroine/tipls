@@ -1,7 +1,28 @@
 
 # Tipls
 
-Bienvenue sur le repository de Tipls, une application web innovante. Ce projet est structuré en deux parties principales : un `backend` et un `frontend`. Pour que l'application fonctionne correctement, il est essentiel d'initialiser ces deux composants.
+Bienvenue sur le repository de Tipls. 
+
+# Fonctionnalités de Tipls
+
+### Développées
+
+- Création d'une dépense
+- Modification d'une dépense
+- Suppression d'une dépense
+- Affichage du détail d'une dépense
+- Affichage de la liste des dépenses
+- Suppression de toutes les dépenses
+- Recherche d'une dépense par nom
+
+### En cours de développement
+
+- Gestion de plusieurs utilisateurs
+- Création de différents espaces
+  
+--- 
+
+Ce projet est structuré en deux parties principales : un `backend` et un `frontend`. Pour que l'application fonctionne correctement, il est essentiel d'initialiser ces deux composants.
 
 ## Configuration du Backend
 
@@ -62,4 +83,3 @@ Le frontend de Tipls est développé avec Angular 17.
 ### Accès à l'application
 
 Une fois le frontend lancé, ouvrez votre navigateur et allez à l'adresse suivante : [http://localhost:8081](http://localhost:8081). Vous devriez maintenant avoir accès à l'interface utilisateur de Tipls.
-
