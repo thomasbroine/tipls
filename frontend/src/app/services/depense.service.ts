@@ -1,18 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Depense } from '../models/depense.model';
+import { tap } from 'rxjs/operators';
 
 const baseUrl = 'http://localhost:8080/api/depenses';
-
-// ce service permet de faire le lien entre le front et le back en utilisant les méthodes HTTP (get, post, put, delete)
 
 @Injectable({
   providedIn: 'root'
 })
 export class DepenseService {
+  private depensesSubject = new BehaviorSubject<Depense[]>([]);
+  depenses$ = this.depensesSubject.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.refreshDepenses();
+  }
+
+  refreshDepenses() {
+    this.getAll().subscribe(depenses => {
+      this.depensesSubject.next(depenses);
+    });
+  }
 
   getAll(): Observable<Depense[]> {
     return this.http.get<Depense[]>(baseUrl);
@@ -31,7 +40,9 @@ export class DepenseService {
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${baseUrl}/${id}`).pipe(tap(() => {
+      this.refreshDepenses();
+    }));
   }
 
   deleteAll(): Observable<any> {

@@ -1,17 +1,21 @@
-<div>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Tipls</a>
-    <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="depenses" class="nav-link">Depenses</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="add" class="nav-link">Ajouter</a>
-      </li>
+<div class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" style="height: 80px;">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-center align-items-center w-100">
+      <div class="px-2 btn-group">
+        <a type="button" class="btn btn-light" href="#" style="font-size: 20px; border-right: 1px solid #000;">Mes espaces</a>
+        <a type="button" class="btn btn-light" href="#" style="font-size: 20px; border-left: 1px solid #000;">+</a>
+      </div>
+      <div class="px-2">
+        <h1 style="padding: 0 20px; color: #fff;">Tipls</h1>
+      </div>
+      <div class="px-2 btn-group">
+        <a type="button" class="btn btn-light" routerLink="add" style="font-size: 20px; border-right: 1px solid #000;">+</a>
+        <a type="button" class="btn btn-light" routerLink="depenses" style="font-size: 20px; border-left: 1px solid #000;">Mes dépenses</a>
+      </div>
     </div>
-  </nav>
-
-  <div class="container mt-3">
-    <router-outlet></router-outlet>
   </div>
+</div>
+
+<div class="container mt-3">
+  <router-outlet></router-outlet>
 </div>

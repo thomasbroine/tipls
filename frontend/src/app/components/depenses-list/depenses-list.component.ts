@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Depense } from '../../models/depense.model';
 import { DepenseService } from '../../services/depense.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-depenses-list',
@@ -13,11 +14,21 @@ export class DepensesListComponent implements OnInit {
   currentDepense: Depense = {};
   currentIndex = -1;
   title = '';
+  isEmpty = false;
+  depensesSubscription?: Subscription;
 
   constructor(private depenseService: DepenseService) { }
 
   ngOnInit(): void {
+    this.depensesSubscription = this.depenseService.depenses$.subscribe(depenses => {
+      this.depenses = depenses;
+      this.isEmpty = depenses.length === 0;
+    });
     this.retrieveDepenses();
+  }
+
+  ngOnDestroy(): void {
+    this.depensesSubscription?.unsubscribe();
   }
 
   retrieveDepenses(): void {
@@ -26,6 +37,7 @@ export class DepensesListComponent implements OnInit {
         next: (data) => {
           this.depenses = data;
           console.log(data);
+          this.isEmpty = data.length === 0;
         },
         error: (e) => console.error(e)
       });
@@ -54,17 +66,20 @@ export class DepensesListComponent implements OnInit {
   }
 
   searchTitle(): void {
-    this.currentDepense = {};
-    this.currentIndex = -1;
-
     this.depenseService.findByTitle(this.title)
       .subscribe({
         next: (data) => {
           this.depenses = data;
+          this.isEmpty = data.length === 0; // Mise à jour de la propriété isEmpty
           console.log(data);
         },
         error: (e) => console.error(e)
       });
+  }
+
+  clearSearch(): void {
+    this.title = '';
+    this.retrieveDepenses();
   }
 
 }

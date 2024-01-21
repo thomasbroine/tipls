@@ -3,3 +3,7 @@
     max-width: 750px;
     margin: auto;
   }
+
+  .active {
+    background-color: #e0e0e0; /* Change this to the color you want */
+}

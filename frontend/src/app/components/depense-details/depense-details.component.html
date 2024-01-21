@@ -1,102 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Depense Details</title>
-</head>
-</html>
+<div *ngIf="viewMode; else editable">
+    <div class="card" style="margin-top: 36px;" *ngIf="currentDepense.id">
+        <div class="card-body">
+          <h4 class="card-title">Détail de la dépense</h4>
+          <div>
+            <label><strong>{{ currentDepense.title }}</strong></label> 
+          </div>
+          <div>
+            <label><strong>Montant : </strong></label>
+            {{ currentDepense.amount }} €
+          </div>
+          <div>
+            <label><strong>Date : </strong></label>
+            {{ currentDepense.date ? "Date" : "No Date" }}
+          </div>
+      
+          <a
+            class="btn btn-outline-primary"
+            routerLink="/depenses/{{ currentDepense.id }}"
+            style="margin-top: 10px;"
+          >
+            Modifier
+          </a>
+          <button class="btn btn-outline-danger" style="margin-top: 10px; margin-left: 15px;" (click)="deleteDepense()">
+              Supprimer
+            </button>
+        </div>
+      </div>
 
-<!-- <div *ngIf="viewMode; else editable">
-    <div *ngIf="currentDepense.id">
-      <h4>Depense</h4>
-      <div>
-        <label><strong>Title:</strong></label> {{ currentDepense.title }}
+  <div *ngElse="!currentDepense">
+    <br />
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentDepense.id" class="edit-form">
+    <h4>Depense</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentDepense.title"
+          name="title"
+        />
       </div>
-      <div>
-        <label><strong>Amount:</strong></label>
-        {{ currentDepense.amount }}
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentDepense.amount"
+          name="amount"
+        />
       </div>
-      <div>
+
+      <div class="form-group">
         <label><strong>Date:</strong></label>
         {{ currentDepense.date ? "Date" : "No Date" }}
       </div>
-  
-      <a
-        class="badge badge-warning"
-        routerLink="/depenses/{{ currentDepense.id }}"
-      >
-        Edit
-      </a>
-    </div>
-  
-    <div *ngIf="!currentDepense">
-      <br />
-      <p>Please click on a Depense...</p>
-    </div>
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteDepense()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateDepense()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
   </div>
-  
-  <ng-template #editable>
-    <div *ngIf="currentDepense.id" class="edit-form">
-      <h4>Depense</h4>
-      <form>
-        <div class="form-group">
-          <label for="title">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            [(ngModel)]="currentDepense.title"
-            name="title"
-          />
-        </div>
-        <div class="form-group">
-          <label for="amount">Amount</label>
-          <input
-            type="text"
-            class="form-control"
-            id="description"
-            [(ngModel)]="currentDepense.amount"
-            name="amount"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label><strong>Date:</strong></label>
-          {{ currentDepense.date ? "Date" : "No Date" }}
-        </div>
-      </form>
-  
-      <button
-        class="badge badge-primary mr-2"
-        *ngIf="currentDepense.published"
-        (click)="updatePublished(false)"
-      >
-        UnPublish
-      </button>
-      <button
-        *ngIf="!currentDepense.published"
-        class="badge badge-primary mr-2"
-        (click)="updatePublished(true)"
-      >
-        Publish
-      </button>
-  
-      <button class="badge badge-danger mr-2" (click)="deleteDepense()">
-        Delete
-      </button>
-  
-      <button
-        type="submit"
-        class="badge badge-success mb-2"
-        (click)="updateDepense()"
-      >
-        Update
-      </button>
-      <p>{{ message }}</p>
-    </div>
-  
-    <div *ngIf="!currentDepense.id">
-      <br />
-      <p>Cannot access this Depense...</p>
-    </div>
-  </ng-template> -->
+
+  <div *ngIf="!currentDepense.id">
+    <br />
+    <p>Cannot access this Depense...</p>
+  </div>
+</ng-template>
