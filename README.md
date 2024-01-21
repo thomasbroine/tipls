@@ -1,27 +1,65 @@
+
 # Tipls
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+Bienvenue sur le repository de Tipls, une application web innovante. Ce projet est structuré en deux parties principales : un `backend` et un `frontend`. Pour que l'application fonctionne correctement, il est essentiel d'initialiser ces deux composants.
 
-## Development server
+## Configuration du Backend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Le backend de Tipls est développé avec NodeJS et Express, et il utilise une base de données Postgresql.
 
-## Code scaffolding
+### Prérequis
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js
+- NPM
+- Postgresql
 
-## Build
+### Configuration de la base de données
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Configuration de la base de données :** Avant de lancer le backend, assurez-vous de configurer votre base de données. Pour cela, éditez le fichier `backend/app/config/db.config.js` avec les détails de votre base de données :
 
-## Running unit tests
+   - HOST: L'adresse de votre serveur de base de données.
+   - USER: Votre identifiant utilisateur pour la base de données.
+   - PASSWORD: Votre mot de passe pour la base de données.
+   - DB: Le nom de votre base de données.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Lancement du Backend
 
-## Running end-to-end tests
+2. **Installation des dépendances :** Accédez au dossier `backend` et exécutez la commande suivante pour installer les dépendances nécessaires :
+   ```bash
+   cd backend
+   npm install
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. **Démarrage du serveur :** Lancez le serveur backend avec la commande suivante :
+   ```bash
+   node server.js
+   ```
+   Cette commande démarre le serveur backend sur le port par défaut, permettant ainsi au backend de traiter les requêtes.
 
-## Further help
+## Configuration du Frontend
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Le frontend de Tipls est développé avec Angular 17.
+
+### Prérequis
+
+- Angular CLI
+
+### Installation et lancement
+
+1. **Installation des dépendances :** Accédez au dossier `frontend` et exécutez la commande suivante :
+   ```bash
+   cd ../frontend
+   npm install
+   ```
+
+2. **Démarrage du frontend :** Pour que le frontend communique avec le backend, lancez-le sur le port 8081 avec la commande suivante :
+   ```bash
+   ng serve --port 8081
+   ```
+
+   Cette commande lance le serveur de développement Angular et ouvre le frontend sur le port 8081.
+
+### Accès à l'application
+
+Une fois le frontend lancé, ouvrez votre navigateur et allez à l'adresse suivante : [http://localhost:8081](http://localhost:8081). Vous devriez maintenant avoir accès à l'interface utilisateur de Tipls.
+
