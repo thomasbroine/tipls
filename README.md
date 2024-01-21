@@ -3,20 +3,6 @@
 
 Bienvenue sur le repository de Tipls. 
 
-# Fonctionnalités de Tipls
-
-### Développées
-
-- Création d'une dépense
-- Modification d'une dépense
-- Suppression d'une dépense
-- Affichage du détail d'une dépense
-- Affichage de la liste des dépenses
-- Suppression de toutes les dépenses
-- Recherche d'une dépense par nom
-
---- 
-
 Ce projet est structuré en deux parties principales : un `backend` et un `frontend`. Pour que l'application fonctionne correctement, il est essentiel d'initialiser ces deux composants.
 
 ## Configuration du Backend
