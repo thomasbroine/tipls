@@ -15,11 +15,6 @@ Bienvenue sur le repository de Tipls.
 - Suppression de toutes les dépenses
 - Recherche d'une dépense par nom
 
-### En cours de développement
-
-- Gestion de plusieurs utilisateurs
-- Création de différents espaces
-  
 --- 
 
 Ce projet est structuré en deux parties principales : un `backend` et un `frontend`. Pour que l'application fonctionne correctement, il est essentiel d'initialiser ces deux composants.
@@ -47,7 +42,7 @@ Le backend de Tipls est développé avec NodeJS et Express, et il utilise une ba
 
 2. **Installation des dépendances :** Accédez au dossier `backend` et exécutez la commande suivante pour installer les dépendances nécessaires :
    ```bash
-   cd backend
+   cd /backend
    npm install
    ```
 
@@ -69,7 +64,7 @@ Le frontend de Tipls est développé avec Angular 17.
 
 1. **Installation des dépendances :** Accédez au dossier `frontend` et exécutez la commande suivante :
    ```bash
-   cd ../frontend
+   cd /frontend
    npm install
    ```
 
