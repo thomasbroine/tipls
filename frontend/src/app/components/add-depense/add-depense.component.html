@@ -1,73 +1,68 @@
+<!-- Conteneur principal avec flexbox et alignement centré -->
 <div
   class="d-flex justify-content-center"
   style="width: 100%; margin-top: 50px"
 >
+  <!-- Conteneur de la carte -->
   <div class="card" style="width: 600px">
+    <!-- En-tête de la carte -->
     <div class="card-header">Ajout d'une dépense</div>
+    <!-- Corps de la carte -->
     <div class="card-body">
+      <!-- Conteneur du formulaire -->
       <div class="submit-form">
-        <div *ngIf="!submitted">
-          <div class="form-group">
-            <label for="title">Titre de la dépense</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              required
-              [(ngModel)]="depense.title"
-              name="title"
-              maxlength="23"
-            />
-          </div>
-
-          <div style="margin-top: 20px; width: 150px">
-            <label for="description">Montant</label>
-            <div class="input-group">
-              <input
-                type="number"
-                class="form-control"
-                id="amount"
-                required
-                [(ngModel)]="depense.amount"
-                name="amount"
-                style="width: 100px"
-              />
-              <span class="input-group-text">€</span>
-            </div>
-          </div>
-
-          <!-- <div>
-            <label for="description">Description</label>
-            <textarea
-              class="form-control"
-              id="description"
-              required
-              [(ngModel)]="depense.description"
-              name="description"
-              maxlength="100"
-            ></textarea>
-          </div> -->
-
-            <div style="margin-top: 20px">
-                <label for="description">Date</label>
-                <input
-                type="date"
-                class="form-control"
-                id="date"
-                required
-                [(ngModel)]="depense.date"
-                name="date"
-                />
-            </div>
-
-          <button
-            (click)="saveDepense()"
-            class="btn btn-success"
-            style="margin-top: 20px"
-          >
-            Ajouter
-          </button>
+        <!-- Groupe de formulaire pour l'entrée du titre -->
+        <div class="form-group">
+          <label for="title">Titre de la dépense</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="depense.title"
+            name="title"
+            maxlength="23"
+          />
         </div>
+
+        <!-- Groupe de formulaire pour l'entrée du montant -->
+        <div style="margin-top: 20px; width: 150px">
+          <label for="description">Montant</label>
+          <div class="input-group">
+            <input
+              type="number"
+              class="form-control"
+              id="amount"
+              required
+              [(ngModel)]="depense.amount"
+              name="amount"
+              style="width: 100px"
+            />
+            <span class="input-group-text">€</span>
+          </div>
+        </div>
+
+        <!-- Groupe de formulaire pour l'entrée de la date -->
+        <div style="margin-top: 20px">
+          <label for="description">Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="date"
+            required
+            [(ngModel)]="depense.date"
+            name="date"
+          />
+        </div>
+
+        <!-- Bouton pour enregistrer la dépense -->
+        <button
+          (click)="saveDepense()"
+          class="btn btn-success"
+          style="margin-top: 20px"
+        >
+          Ajouter
+        </button>
       </div>
     </div>
   </div>

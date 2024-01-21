@@ -16,6 +16,7 @@ export class DepensesListComponent implements OnInit {
   title = '';
   isEmpty = false;
   depensesSubscription?: Subscription;
+  showDetails = false;
 
   constructor(private depenseService: DepenseService) { }
 
@@ -52,6 +53,7 @@ export class DepensesListComponent implements OnInit {
   setActiveDepense(depense: Depense, index: number): void {
     this.currentDepense = depense;
     this.currentIndex = index;
+    this.showDetails = true;
   }
 
   removeAllDepenses(): void {

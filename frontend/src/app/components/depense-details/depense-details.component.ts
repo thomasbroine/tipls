@@ -63,7 +63,7 @@ export class DepenseDetailsComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.currentDepense = {};
+          
           this.router.navigate(['..'], { relativeTo: this.route });
         },
         error: (e) => console.error(e)
